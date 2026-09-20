@@ -1,0 +1,446 @@
+*{
+     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1a1625;
+    color: #ffffff;
+    min-height: 100vh;  /* minmim cover 100% of user screen*/
+}
+
+
+
+#loginPage, #registerPage {
+   display: flex;   /*to make it easy to control the elemant inside this div */
+    justify-content: center; /*to make content in center*/
+    align-items: center;    /*to make content in center*/
+    min-height: 100vh;
+    padding: 20px; /*space between elment and Edges = 20px*/
+    
+}
+
+.box {
+    background: rgba(255, 255, 255, 0.08); /*to make a diff in color i used rgba white color with Transparency = 8%  to make a glass background in this box*/
+    border: 1px solid rgba(255, 255, 255, 0.15);/* border with white color and transparency = 15%  more close to white*/
+    border-radius: 20px;  /*to make it have carve*/
+    padding: 40px;
+    width: 100% ; /*to take all box width*/
+    max-width: 400px;
+    text-align: center;
+}
+
+/*the text "NEXTSTEP" , inside class box style the elemnt h1*/
+.box h1 {
+    color: #b794f6;
+    font-size: 32px;
+    letter-spacing: 3px;
+    margin-bottom: 8px; /* the space between "NEXTSTEP" and "Know where you are. Know what's next."*/
+}
+
+/*the text "login" & "register"*/
+.box h2{
+    color: #f687b3;
+    font-size: 22px;
+    margin: 20px 0; /* 20px for the top & bottom , 0 for left & right*/
+}
+/* for text "Know where you are" & "Create your account"*/
+
+.tagline {
+    color: #a0a0b0;
+    font-size: 14px;
+    margin-bottom: 10px; /* the space between it and "login & register"  */
+}
+
+.box input {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 14px;
+}
+
+.box input:focus {
+    outline: none;
+    border-color:#b794f6 ;
+}
+
+button{
+    background:linear-gradient(90deg, #b794f6, #f687b3);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 24px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.smallText {
+    font-size: 13px;
+    color: #a0a0b0;
+    margin-top: 16px;
+}
+
+.smallText a {
+    color:  #90cdf4;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.error {
+    color:#f687b3;
+    font-size: 13px;
+    margin-top: 10px;
+    min-height: 18px;
+    
+}
+/* the regError mass*/
+#regUser.error::placeholder {
+    color: #f687b3;
+}
+
+#regPass.error::placeholder{
+    color: #f687b3;
+}
+
+#chossecareer {
+     padding: 40px 20px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+.bigTittle {
+    font-size: 42px;
+    color: #b794f6;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+
+.career-grid {
+    display: grid; /*grid is new methode enable me to put the carde in net (columns and rows)*/
+    grid-template-columns: repeat(auto-fit,minmax(250px , 1fr));
+    /*tell the broser to put tha cards in net it's area depends on the broser's area , foreach column the minwidth id 250px & max = the broser's earea devided into th n.of cards*/
+    gap: 20px;
+    /* gab is the space between each*/
+    margin-top: 30px;
+}
+
+
+.career-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.career-card:hover {
+    background: rgba(183, 148, 246, 0.15);
+    border-color:#b794f6 ;
+    transform: translateY(-5px);
+    /* transform : when the mouse over the card it lose 5px and move to top  , translateY => Y to lose it Vertically رأسيا  */
+}
+
+.career-card .icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.career-card h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.career-card p {
+    color: #a0a0b0;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+
+.career-card button {
+    width: auto;
+    padding: 10px 20px ;
+    font-size: 14px;
+}
+
+
+
+
+#dashboardPage {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+.sidebar {
+    width: 220px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 24px 16px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    overflow-y: auto;
+}
+.sidebar h2 {
+    color: #b794f6;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    padding-left: 12px;
+}
+
+.sidebar a {
+    display: block;
+    color: #a0a0b0;
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.sidebar a:hover {
+    background: rgba(183, 148, 246, 0.15);
+    color: #ffffff;
+}
+
+.sidebar a.active {
+    background: rgba(183, 148, 246, 0.25);
+    color: #ffffff;
+}
+
+.main {
+    margin-left: 220px;
+    padding: 30px 40px;
+    flex: 1;
+}
+
+.main h1 {
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 20px;
+    margin-top: 19px;
+}
+
+
+/* text"Current Goal" , "Overall Progress" , "Your NextStep"*/
+.card h3 {
+    color: #90cdf4;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+/* class highlight and class card */
+.card.highlight {
+    border-color: #f687b3;
+    background: rgba(246, 135, 179, 0.1);
+}
+
+/* <h3>Your NextStep</h3> */
+.card.highlight h3 {
+    color: #f687b3;
+}
+
+
+/* <div class="card"> <!--this is for shape of the card-->
+                    <h3>Overall Progress</h3>
+                    <div class="progress-bar"> <!--The Overall Progress bar to show the progress percentage-->
+                         <div id="overallProgress" class="progress-fill">UUUUUUUUUU</div> <!--for the progress % -->
+                    </div>
+                    <p id="progressText">0%</p>
+                </div> */
+
+.progress-bar {
+    width: 100%;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg , #b794f6, #f687b3);
+    border-radius: 10px;
+    transition: width 0.5s;
+}
+
+
+
+/* ===== ROADMAP SKILLS ===== */
+
+        /*so now :   div=>class=roadmaplist
+                         {
+                          div=>class=skill & class=+state+(done , current , locked)
+                             {
+                               div=> class='skill-info' 
+                                    <h4> + skill.name + </h4> 
+                                    <p> + skill.level + " • " + info  </p> 
+                
+                                button ; outside the skill-info
+                             }
+                         }
+                             
+        
+        */
+
+.skill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 16px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}      
+
+.skill.done {
+    border-color:  #9ae6b4;
+    background-color: rgba(154, 230, 180, 0.1);
+}
+
+.skill.current {
+    border-color: #faf089;
+    background: rgba(250, 240, 137, 0.1);
+}
+
+.skill.locked {
+    opacity: 0.5;
+}
+
+.skill-info h4 {
+        color: #ffffff;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.skill-info p {
+    color: #a0a0b0;
+    font-size: 12px;
+}
+
+.skill button {
+    width: auto;
+    padding: 8px 16px;
+    font-size: 13px;
+    margin: 0;
+}
+
+
+/* ===== RESOURCES ===== */
+        /*so now :   div=>class=resourceslist
+                         {
+                          div=>class=resources
+                             {
+                                    <h4> + skillName + </h4> 
+                                    <a href="list[a].link" target='-blank'>list[a].name</a> 
+                             }
+                         }
+                             
+        
+        */
+
+.resource {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 16px;
+    margin-top: 10px;
+}
+
+.resource h4 {
+    color: #81e6d9;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.resource a {
+    color: #90cdf4;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.resource a:hover {
+    text-decoration: underline;
+}
+
+
+/*       
+  <!-------------this for the card of community has to classes------------->
+            <div class="card community-card"> //two classes
+                <span class="icon-big">💬</span>
+                <h3 id="communityName">Community</h3>
+                <p>Ask questions, share resources, and learn with other students.</p>
+                <a id="communityLink" href="" target="_blank">
+                    <button>Join Community →</button>
+                </a>
+            </div>
+
+
+ */
+
+ .community-card {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 500px;
+ }
+
+ .icon-big {
+    font-size: 50px;
+    display: block;
+    margin-bottom: 16px;
+ }
+
+ .community-card h3 {
+    color: #b794f6;
+    font-size: 20px;
+    margin-bottom: 12px;
+ }
+
+ .community-card p{
+    color: #a0a0b0;
+    font-size: 14px;
+    margin-bottom: 20px;
+ }
+
+ .community-card a {
+    text-decoration: none;
+}
+
+
+

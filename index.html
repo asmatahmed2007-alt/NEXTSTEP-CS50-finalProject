@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextStep</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--------- the login page----------->
+
+    <div id="loginPage">  <!-- this for the backdroung -->
+        <div class="box">   <!--this for the login squre-->
+            <h1>NEXTSTEP</h1>
+            <p class="tagline">Know where you are. Know what's next.</p>   <!--i give it class so be easy to target in css-->
+            <h2>Login</h2>
+            
+                       <!-------login input------->
+            <input type="text" id="loginUser" placeholder="Username">
+            <input type="password" id="loginPass" placeholder="password">
+
+            <button onclick="Login()">Login</button>  <!--login() take user to choose career page exict in js-->
+
+            <p class="smallText">Don't have an account?
+                <a onclick="showRegister()">Register</a>  <!--showregister() take user to Register page-->
+            </p>
+            <p id="loginError" class="error"></p>  <!--empty becase if wrong pass will show massage   ,   id and class one for css and js-->
+        </div>
+   </div>
+
+       <!---------the Register page----------->
+
+
+
+    <div id="registerPage"  style="display:none;"> <!-- this for the backdroung -->
+        <div class="box">           <!--this for the register squre , same class same style-->
+            <h1>NEXTSTEP</h1>
+            <p class="tagline">Create your account</p>   <!--i give it class so be easy to target in css-->
+            
+            <h2>Register</h2>
+            
+                       <!-------Register input------->
+            <input type="text" id="regName"  placeholder="Full Name" >
+            <input type="text" id="regUser"  placeholder="Username" >            
+            <input type="password" id="regPass" placeholder="Password">
+            <input type="password" id="regPass2" placeholder="Confirm Password">
+
+            <button onclick="register()">Create Account</button>
+
+            <p class="smallText">Already have an account?
+                <a onclick="showLogin()">Login</a>
+            </p>
+
+            <p id="regError" class="error"></p>
+        </div>
+    </div> 
+
+
+
+
+    <!----------**********-CHOOSE CAREER PAGE-************-------------->
+
+<!-- to control all the element in the page  -->
+<div id="chossecareer" style="display:none;">
+        <h1 class="bigTittle">WHAT DO YOU <br>WANT TO<br> BECOME?</h1> <!--used br to new line-->
+        <p class="tagline">Choose your career goal</p>
+
+             <!---------tracks in the website----------->
+
+    <div class="career-grid">  <!--to control the cards and their space-->
+
+            <!---------Android Developer track-------->
+            <div class="career-card" onclick="chooseCareer('Android Developer')"> <!--class="career-card" to style all cards-->
+               <span class="icon">📱</span> 
+               <h3>Android Developer</h3>
+               <p>Build mobile apps</p> 
+               <button>Choose</button>           
+             </div>
+
+            <!------------iOS Developer track -----------> 
+             <div class="career-card" onclick="chooseCareer('iOS Developer')">
+               <span class="icon">🍎</span> 
+               <h3>iOS Developer</h3>
+               <p>Build iPhone apps</p> 
+               <button>Choose</button>           
+            </div>
+
+
+            <!------------Front-End Developer track -----------> 
+            <div class="career-card" onclick="chooseCareer('Front-End Developer')">
+                <span class="icon">💻</span>
+                <h3>Front-End Developer</h3>
+                <p>Build websites</p>
+                <button>Choose</button>
+            </div>
+
+
+            <!------------Back-End Developer track -----------> 
+            <div class="career-card" onclick="chooseCareer('Back-End Developer')">
+                <span class="icon">⚙️</span>
+                <h3>Back-End Developer</h3>
+                <p>Build servers</p>
+                <button>Choose</button>
+            </div>
+
+
+            <!------------Data Analyst track -----------> 
+            <div class="career-card" onclick="chooseCareer('Data Analyst')">
+                <span class="icon">📊</span>
+                <h3>Data Analyst</h3>
+                <p>Analyze data</p>
+                <button>Choose</button>
+            </div>
+
+
+            <!------------UI/UX Designer track -----------> 
+            <div class="career-card" onclick="chooseCareer('UI/UX Designer')">
+                <span class="icon">🎨</span>
+                <h3>UI/UX Designer</h3>
+                <p>Design experiences</p>
+                <button>Choose</button>
+            </div>
+    </div>        
+</div>
+
+
+
+    <!----------**********-DASHBOARD PAGE-************-------------->
+
+
+
+<div id="dashboardPage" style="display:none;">
+
+    <!----------SIDEBAR----------->
+        <div class="sidebar">
+            <h2>NEXTSTEP</h2>
+            <a onclick="showSection('home' , this)" class="active">🏠 Home</a>
+            <a onclick="showSection('roadmap', this)">🚀 My Roadmap</a>
+            <a onclick="showSection('resources', this)">📚 Resources</a>
+            <a onclick="showSection('community', this)">💬 Community</a>
+            <a onclick="logout()">🚪 Logout</a>
+        </div>
+     
+
+
+        <!---------- MAIN CONTENT ---------->
+    <div class="main">
+
+            <!------------ HOME SECTION ----------->
+            <div id="section-home">
+                <h1>Good morning! 👋</h1>
+                <p class="tagline">Ready for your next step?</p>
+                
+                <div class="card">
+                    <h3>Current Goal</h3>
+                    <p id="currentCareer"></p> <!--display here the track user choosed-->
+                </div>
+
+                <div class="card"> <!--this is for shape of the card-->
+                    <h3>Overall Progress</h3>
+                    <div class="progress-bar"> <!--just the shape of the bar of progress-->
+                         <div id="overallProgress" class="progress-fill"></div> for the progress %
+                    </div>
+                    <p id="progressText">0%</p>
+                </div>
+
+            <!--progress-fill ===> It's an arrow pointing at the progress bar, and this will move later every time a skill is completed.-->
+            <!--overallProgress ===> to update the percent value after skill completed-->    
+
+                <div class="card highlight"> <!--THIS div has 2 classes -->
+                        <h3>Your NextStep</h3>
+                        <p id="nextStep"></p> <!--to display the next skill must complete-->
+                         <button onclick="showSection('roadmap')">Continue Learning →</button>
+
+                </div>    
+
+             </div> <!--THE HOME SECTION ENDED-->
+
+
+
+        <!--------------- ROADMAP SECTION ------------------>
+            <div id="section-roadmap" style="display:none;" >
+                <h1>My Roadmap</h1>
+                <p class="tagline">Your learning journey</p>
+                <div id="roadmapList"></div>    <!--here to but the current skill and button to mark as completed-->
+            </div> 
+
+        <!------------ RESOURCES SECTION ------------------>
+            <div id="section-resources" style="display:none;">
+                <h1>Resources</h1>
+                <p class="tagline">Learning materials</p>
+                <div id="resourcesList"></div> <!--to put the links of resoueces-->
+            </div>
+
+        <!------------ COMMUNITY SECTION ------------------>
+        <div id="section-community" style="display:none;">
+            <h1>Community</h1>
+            <p class="tagline">You're not learning alone</p>
+
+        <!-------------this for the card of community has to classes------------->
+            <div class="card community-card">
+                <span class="icon-big">💬</span>
+                <h3 id="communityName">Community</h3>
+                <p>Ask questions, share resources, and learn with other students.</p>
+                <a id="communityLink" href="" target="_blank">
+                    <button>Join Community →</button>
+                </a>
+            </div>
+
+
+    
+
+        </div>
+
+    </div>
+
+     
+</div>
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
